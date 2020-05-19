@@ -5,9 +5,12 @@ using System.Web;
 
 namespace Examen2.Models
 {
-    public class Datos
+    public class Agenda
     {
         public int Id { get; set; }
-        public string nombre { get; set; }
+        public string Nombre { get; set; }
+        public string Telefono { get; set; }
+        public string Correo { get; set; }
+
     }
 }

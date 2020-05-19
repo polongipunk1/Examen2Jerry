@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Examen2.Data
 {
-    public class DatosContext : DbContext
+    public class AgendaContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -15,10 +15,10 @@ namespace Examen2.Data
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public DatosContext() : base("name=DatosContext")
+        public AgendaContext() : base("name=AgendaContext")
         {
         }
 
-        public System.Data.Entity.DbSet<Examen2.Models.Agenda> Datos { get; set; }
+        public System.Data.Entity.DbSet<Examen2.Models.Agenda> Agenda { get; set; }
     }
 }

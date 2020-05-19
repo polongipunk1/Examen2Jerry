@@ -11,107 +11,107 @@ using Examen2.Models;
 
 namespace Examen2.Controllers
 {
-    public class DatosController : Controller
+    public class AgendaController : Controller
     {
-        private DatosContext db = new DatosContext();
+        private AgendaContext db = new AgendaContext();
 
-        // GET: Datos
+        // GET: Agenda
         public ActionResult Index()
         {
-            return View(db.Datos.ToList());
+            return View(db.Agenda.ToList());
         }
 
-        // GET: Datos/Details/5
+        // GET: Agenda/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Datos datos = db.Datos.Find(id);
-            if (datos == null)
+            Agenda agenda = db.Agenda.Find(id);
+            if (agenda == null)
             {
                 return HttpNotFound();
             }
-            return View(datos);
+            return View(agenda);
         }
 
-        // GET: Datos/Create
+        // GET: Agenda/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Datos/Create
+        // POST: Agenda/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre")] Datos datos)
+        public ActionResult Create([Bind(Include = "Id,Nombre,Telefono,Correo")] Agenda agenda)
         {
             if (ModelState.IsValid)
             {
-                db.Datos.Add(datos);
+                db.Agenda.Add(agenda);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(datos);
+            return View(agenda);
         }
 
-        // GET: Datos/Edit/5
+        // GET: Agenda/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Datos datos = db.Datos.Find(id);
-            if (datos == null)
+            Agenda agenda = db.Agenda.Find(id);
+            if (agenda == null)
             {
                 return HttpNotFound();
             }
-            return View(datos);
+            return View(agenda);
         }
 
-        // POST: Datos/Edit/5
+        // POST: Agenda/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre")] Datos datos)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Telefono,Correo")] Agenda agenda)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(datos).State = EntityState.Modified;
+                db.Entry(agenda).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(datos);
+            return View(agenda);
         }
 
-        // GET: Datos/Delete/5
+        // GET: Agenda/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Datos datos = db.Datos.Find(id);
-            if (datos == null)
+            Agenda agenda = db.Agenda.Find(id);
+            if (agenda == null)
             {
                 return HttpNotFound();
             }
-            return View(datos);
+            return View(agenda);
         }
 
-        // POST: Datos/Delete/5
+        // POST: Agenda/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Datos datos = db.Datos.Find(id);
-            db.Datos.Remove(datos);
+            Agenda agenda = db.Agenda.Find(id);
+            db.Agenda.Remove(agenda);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
